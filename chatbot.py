@@ -7,8 +7,112 @@ API_KEY = st.secrets["GEMINI_API_KEY"]      # set in Streamlit Cloud secrets
 GDRIVE_FILE_ID = "10iDj7__Bscs6014-mpP_CYFvW1xsFw2a"  # ← your Google Drive file ID
 
 # ── Page setup ───────────────────────────────────────────────────────────────
-st.set_page_config(page_title="Class 1 English Assistant", page_icon="📚")
-st.title("📚 Class 1 – English Assistant")
+st.set_page_config(page_title="Your Personal Assistant", page_icon="🤖")
+
+# ── Custom CSS - Futuristic Robotic Theme ────────────────────────────────────
+st.markdown("""
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600&display=swap');
+
+/* Background */
+.stApp {
+    background-image: 
+        linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)),
+        url('https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=1600');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+/* Grid overlay effect */
+.stApp::before {
+    content: '';
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-image: 
+        linear-gradient(rgba(0,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,255,255,0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Title */
+h1 {
+    font-family: 'Orbitron', monospace !important;
+    color: #00ffff !important;
+    text-align: center;
+    font-size: 2rem !important;
+    letter-spacing: 4px !important;
+    text-shadow: 0 0 20px rgba(0,255,255,0.8), 0 0 40px rgba(0,255,255,0.4);
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(0,255,255,0.3);
+    margin-bottom: 1rem;
+}
+
+/* Chat messages */
+.stChatMessage {
+    background: rgba(0, 20, 40, 0.8) !important;
+    border: 1px solid rgba(0,255,255,0.2) !important;
+    border-radius: 4px !important;
+    backdrop-filter: blur(10px);
+    font-family: 'Rajdhani', sans-serif !important;
+    color: #e0f7fa !important;
+}
+
+/* User message */
+.stChatMessage[data-testid="user-message"] {
+    border-color: rgba(0,255,255,0.4) !important;
+    background: rgba(0,40,60,0.8) !important;
+}
+
+/* Chat input */
+.stChatInput textarea {
+    background: rgba(0, 10, 20, 0.9) !important;
+    border: 1px solid rgba(0,255,255,0.4) !important;
+    border-radius: 4px !important;
+    color: #00ffff !important;
+    font-family: 'Rajdhani', sans-serif !important;
+    font-size: 1rem !important;
+}
+
+.stChatInput textarea::placeholder {
+    color: rgba(0,255,255,0.4) !important;
+}
+
+.stChatInput textarea:focus {
+    border-color: #00ffff !important;
+    box-shadow: 0 0 15px rgba(0,255,255,0.3) !important;
+}
+
+/* Send button */
+.stChatInput button {
+    background: rgba(0,255,255,0.1) !important;
+    border: 1px solid rgba(0,255,255,0.5) !important;
+    color: #00ffff !important;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: rgba(0,0,0,0.3); }
+::-webkit-scrollbar-thumb { background: rgba(0,255,255,0.4); border-radius: 2px; }
+
+/* Error box */
+.stAlert {
+    background: rgba(255,0,0,0.1) !important;
+    border: 1px solid rgba(255,0,0,0.4) !important;
+    color: #ff6b6b !important;
+    font-family: 'Rajdhani', sans-serif !important;
+}
+
+/* Hide Streamlit branding */
+#MainMenu {visibility: hidden;}
+footer {visibility: hidden;}
+</style>
+""", unsafe_allow_html=True)
+
+st.title("🤖 YOUR PERSONAL ASSISTANT")
 
 # ── Load KB from Google Drive ────────────────────────────────────────────────
 @st.cache_data
