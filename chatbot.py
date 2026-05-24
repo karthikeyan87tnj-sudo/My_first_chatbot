@@ -18,7 +18,7 @@ st.markdown("""
 .stApp {
     background-image: 
         linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)),
-        url('https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=1600');
+        url('https://github.com/karthikeyan87tnj-sudo/My_first_chatbot/blob/main/background.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
