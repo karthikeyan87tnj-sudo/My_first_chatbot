@@ -12,7 +12,7 @@ st.set_page_config(page_title="Your Personal Assistant", page_icon="🤖")
 # ── Custom CSS - Futuristic Robotic Theme ────────────────────────────────────
 st.markdown("""
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600&display=swap');
+@import url('https://github.com/karthikeyan87tnj-sudo/My_first_chatbot/blob/main/background.jpg');
 
 /* Background */
 .stApp {
